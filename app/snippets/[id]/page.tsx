@@ -1,5 +1,8 @@
 import { db } from '../../../app/db';
 import Link from 'next/link';
+import ModalDelete from '@/components/ModalDelete';
+import { notFound } from 'next/navigation';
+
 
 export async function generateStaticParams() {
   return [{ id: "firts" }, { id: "second" }]
@@ -12,6 +15,8 @@ const page = async ({ params }: any) => {
   const snippet = await db.snippet.findFirst({
     where: { id: Number(params.id) }
   })
+
+  if (!snippet) notFound()
 
   return (
     <div className='flex justify-between gap-x-5 max-w-96 pt-8'>
@@ -27,10 +32,9 @@ const page = async ({ params }: any) => {
       </div>
       <div className='flex gap-x-4 items-start'>
         <Link href={`/snippets/${params.id}/edit`}>
-
-          <button className='bg-slate-300 text-black px-4 py-2 rounded-md hover:bg-slate-400'>edit</button>
+          <button className='bg-slate-300 text-black px-4 py-2 rounded-md hover:bg-slate-400'> Edit</button>
         </Link>
-        <button className='bg-slate-300 text-black px-4 py-2 rounded-md hover:bg-slate-400'>delete </button>
+        <ModalDelete idSnippet={params.id} />
       </div>
     </div>
   )

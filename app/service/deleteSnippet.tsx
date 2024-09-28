@@ -12,7 +12,7 @@ async function deleteSnippet(id: number) {
     }
   })
 
-  redirect(`/snippets/${id}`)
+  redirect(`/`)
 }
 
 export default deleteSnippet

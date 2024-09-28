@@ -10,6 +10,8 @@ const FetchData = async () => {
 
   let snippes: listSnippet[] = await db.snippet.findMany()
 
+
+
   return (
     <div className='mt-5'>
       {

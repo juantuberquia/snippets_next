@@ -11,8 +11,6 @@ const EditSnippet = async ({ params }: any) => {
 
   if (!snippet) notFound()
 
-
-
   return (
     <div className="pt-10 pl-10">
       <p> Editing  snippet with id {params.id}</p>
