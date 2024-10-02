@@ -27,11 +27,9 @@ const NewSnippet = () => {
           <label htmlFor="code" className='w-12'>Code</label>
           <input type="text" id='code' name='code' className='border rounded p-2 w-full' />
         </div>
-
         {
           formState.message ? <div className='my-2 p-2 bg-red-200 border rounded border-red-400'> {formState.message} </div> : null
         }
-
         <button type='submit' className='rounded p-2 bg-blue-200 w-full'>
           Save
         </button>
