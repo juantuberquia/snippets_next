@@ -3,17 +3,10 @@ import Link from 'next/link';
 import ModalDelete from '@/components/ModalDelete';
 import { notFound } from 'next/navigation';
 
-
-export async function generateStaticParams() {
-  return [{ id: "firts" }, { id: "second" }]
-}
-
 const page = async ({ params }: any) => {
 
-  await new Promise((r) => (setTimeout(r, 500)))
-
   const snippet = await db.snippet.findFirst({
-    where: { id: Number(params.id) }
+    where: { id: Number(params?.id) }
   })
 
   if (!snippet) notFound()

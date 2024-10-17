@@ -2,7 +2,7 @@
 'use server'
 import { db } from '@/app/db'
 import { redirect } from 'next/navigation'
-
+import { revalidatePath } from 'next/cache'
 
 async function deleteSnippet(id: number) {
 
@@ -12,6 +12,7 @@ async function deleteSnippet(id: number) {
     }
   })
 
+  // revalidatePath("/")
   redirect(`/`)
 }
 

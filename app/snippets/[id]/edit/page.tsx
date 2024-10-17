@@ -4,7 +4,7 @@ import { ShowSnippet } from '@/components/ShowSnippet';
 
 const EditSnippet = async ({ params }: any) => {
 
-  const id = Number(params.id)
+  const id = Number(params?.id)
   const snippet = await db.snippet.findFirst({
     where: { id }
   })

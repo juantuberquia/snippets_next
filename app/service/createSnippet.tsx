@@ -3,6 +3,7 @@
 import React from 'react'
 import { db } from '@/app/db'
 import { redirect } from 'next/navigation'
+import { revalidatePath } from 'next/cache'
 
 async function createSnippet(formstate: { message: string }, formData: FormData) {
 
@@ -41,6 +42,7 @@ async function createSnippet(formstate: { message: string }, formData: FormData)
       }
     }
   }
+  revalidatePath("/")
   redirect(`/`)
 
 }
